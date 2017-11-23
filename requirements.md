@@ -12,3 +12,9 @@ http://json-schema.org/latest/json-schema-core.html
 
 http://json-schema.org/latest/json-schema-validation.html
 
+* Apply root schema to entire instance document (3.1)
+* Absence of validation keywords does not restrict validation - can act as no-op to value with specific value (3.2)
+* If the type of the value is not compatible with the keywords target type, the value is valid in regards to that keyword (3.2.1)
+* Annotations must be ignored inside a `not` subschema and inside failing branches of `oneOf`, `anyOf`, `then`, or `else` (3.3)
+* The nul(\u0000) character is valid inside of a string (4.1)
+* Regex is defined from `ecma262` and are not anchored (4.3)
