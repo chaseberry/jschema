@@ -50,3 +50,15 @@ http://json-schema.org/latest/json-schema-validation.html
 ### exclusiveMaximum (6.2.3)
 * Must be a number
 * Value must be < this
+
+### minimum (6.2.4)
+* Must be a number
+* Value must be >= this
+
+### exclusiveMinimum (6.2.5)
+* Must be a number
+* Value must be > this
+
+### maxLength (6.3.1)
+* Must be an int >= 0
+* Value length must be <= this
