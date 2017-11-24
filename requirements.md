@@ -62,3 +62,13 @@ http://json-schema.org/latest/json-schema-validation.html
 ### maxLength (6.3.1)
 * Must be an int >= 0
 * Value length must be <= this
+
+### minLength (6.3.2)
+* Must be an int >= 0
+* Value length must be >= this
+* Omitting this keyword is the same as supplying with a value of 0
+
+### pattern (6.3.3)
+* Must be a string
+* Should be a regex
+* Valid if the string matches this
