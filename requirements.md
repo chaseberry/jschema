@@ -72,3 +72,16 @@ http://json-schema.org/latest/json-schema-validation.html
 * Must be a string
 * Should be a regex
 * Valid if the string matches this
+
+### items (6.4.1)
+* Must be an Schema or Array of Schemas
+* If a single schema, validates all elements of an array against
+* If array, validates each element against the schema at the same position
+* Elements past the array size are valid
+* Omitted is the same as supplying {}
+
+### additionalItems (6.4.2)
+* Must be a schema
+* Applied to all elements past the items field size
+* Must be ignored if items is a schema
+* Omitted is the same as supplying {}
