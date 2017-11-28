@@ -141,3 +141,34 @@ http://json-schema.org/latest/json-schema-validation.html
 * Must be a Schema
 * Validates the value of any keys not matched by `properties` or `patternProperties`
 * Omitted is the same as supplying {}
+
+### dependencies (6.5.7)
+* Must be an object, each value must be an array or Schema
+* If the value is a Schema and the key matches a key in the object,
+the entire object must match the Schema
+* If the value is an array each element must be a string and unique,
+if the key matches a key in the object, each value in the array must be in the object
+* Omitted is the same as supplying {}
+
+### propertyNames (6.5.8)
+* Must be a Schema
+* Every key in the value must match the schema, type will always be string*
+* Omitted is the same as supplying {}
+
+## Conditionals (6.6)
+
+### if (6.6.1)
+* Must be a Schema
+* Always validates
+
+### then (6.6.2)
+* Must be a Schema
+* If the value validated against an if in the scope of this,
+then it must also validate against this
+* If the value did not validate against an if, or there is no if, this always validates
+
+### (6.6.3)
+* Must be a Schema
+* If the value did not validate against an if in the scope of this,
+then it must also validate against this
+* If the value did validate against an if, or there is no if, this always validates
