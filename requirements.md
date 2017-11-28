@@ -20,7 +20,9 @@ http://json-schema.org/latest/json-schema-validation.html
 * Regex is defined from `ecma262` and are not anchored (4.3)
 
 
-## Validation Keywords
+# Validation Keywords
+
+## Number Specific (6.1)
 
 ### type (6.1.1)
 * Must be String or Array
@@ -59,6 +61,8 @@ http://json-schema.org/latest/json-schema-validation.html
 * Must be a number
 * Value must be > this
 
+## String Specific (6.3)
+
 ### maxLength (6.3.1)
 * Must be an int >= 0
 * Value length must be <= this
@@ -72,6 +76,8 @@ http://json-schema.org/latest/json-schema-validation.html
 * Must be a string
 * Should be a regex
 * Valid if the string matches this
+
+## Array Specific (6.4)
 
 ### items (6.4.1)
 * Must be an Schema or Array of Schemas
@@ -104,6 +110,34 @@ http://json-schema.org/latest/json-schema-validation.html
 * Must be a Schema
 * At least one element must match this schema
 
+## Object Specific (6.5)
+
 ### maxProperties (6.5.1)
 * Must be an int >= 0
 * Number of properties must be <= this
+
+### minProperties (6.5.2)
+* Must be an int <= 0
+* Number of properties must be >= this
+* Omitted is the same as supplying 0
+
+### required (6.5.3)
+* Must be an array, all elements must be Strings, and unique
+* Every item in this array must be a property in the value
+* Omitted is the same as supplying []
+
+### properties (6.5.4)
+* Must be an object, each value must be a Schema
+* Each key-value pair validates against the same key-value pair in the value
+* Missing keys in the value are ignored
+* Omitted is the same as supplying {}
+
+### patternProperties (6.5.5)
+* Must be an object, each property should be a regex, each value must be a schema
+* If a key in the value matches a regex key in this, its value must the regex keys schema
+* Omitted is the same as supplying {}
+
+### additionalProperties (6.5.6)
+* Must be a Schema
+* Validates the value of any keys not matched by `properties` or `patternProperties`
+* Omitted is the same as supplying {}
