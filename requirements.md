@@ -85,3 +85,25 @@ http://json-schema.org/latest/json-schema-validation.html
 * Applied to all elements past the items field size
 * Must be ignored if items is a schema
 * Omitted is the same as supplying {}
+
+### maxItems (6.4.3)
+* Must be an int >= 0
+* Size of value must be <= this
+
+### minItems (6.4.4)
+* Must be an int >= 0
+* Size of value must be >= this
+* Omitted is the same as supplying 0
+
+### uniqueItems (6.4.5)
+* Must be a boolean
+* If true, every element must not equal any other
+* Omitted is the same as supplying false
+
+### contains (6.4.6)
+* Must be a Schema
+* At least one element must match this schema
+
+### maxProperties (6.5.1)
+* Must be an int >= 0
+* Number of properties must be <= this
