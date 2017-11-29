@@ -236,3 +236,10 @@ then it must also validate against this
 * Valid against regexes (ECMA 262)
 
 ## Non-Json Data (8)
+* Non Json data encoded as a string
+* Should support the following
+* Option to disable validation on these keywords
+
+### contentEncoding (8.3)
+
+### contentMediaType (8.4)
