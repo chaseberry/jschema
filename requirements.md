@@ -199,22 +199,40 @@ then it must also validate against this
 
 ### Dates/Times (7.3.1)
 * Applied to strings
-* Should support `date-time`, `date`, `time`
-* If `full-date` and `full-time` are supported, `date` and `time` must be supported
+* Should support `date-time`, `date`, and `time`
+* If `full-date`, and `full-time` are supported, `date` and `time` must be supported
 * Should not support name-space collisions unless validation against RFC 3339, section 5.6 is correct
 
-### emails (7.3.2)
+### Emails (7.3.2)
 * Applied to strings
-* Valid against `email` and `idn-email` (RFC 5322, section 3.4.1, RFC 6531)
+* Valid against `email`, and `idn-email` (RFC 5322, section 3.4.1, RFC 6531)
 * `idn-email` is a superset of `email`
 
-### hostnames (7.3.3)
+### Hostnames (7.3.3)
 * Applied to strings
-* Valid against `hostname` and `idn-hostname`  (RFC 1034, section 3.1,RFC 5890, section 2.3.2.3)
+* Valid against `hostname`, and `idn-hostname`  (RFC 1034, section 3.1,RFC 5890, section 2.3.2.3)
 * `idn-hostname` is a superset of `hostname`
 
-### ip address (7.3.4)
+### IP Address (7.3.4)
 * Applied to strings
 * Valid against `ipv4` and `ipv6` (RFC 2673, section 3.2, RFC 4291, section 2.2)
 
-##
+### Resource Ids
+* Applied to strings
+* Valid against `uri`, `uri-reference`, `iri`, and `iri-reference` (RFC3986, RFC3986, RFC3987, RFC3987)
+* `iri` is a superset of `uri` and `iri-reference` is a superset of `uri-reference`
+
+### URI Template
+* Applied to strings
+* Valid against `uri-template` (RFC6570)
+* Can be used for iris
+
+### Json pointers
+* Applied to strings
+* Valid against `json-pointer`, and `relative-json-pointer` (RFC 6901, section 5, Relative JSON Pointer)
+
+### Regex
+* Applied to strings
+* Valid against regexes (ECMA 262)
+
+## Non-Json Data (8)
