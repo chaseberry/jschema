@@ -167,8 +167,54 @@ if the key matches a key in the object, each value in the array must be in the o
 then it must also validate against this
 * If the value did not validate against an if, or there is no if, this always validates
 
-### (6.6.3)
+### else (6.6.3)
 * Must be a Schema
 * If the value did not validate against an if in the scope of this,
 then it must also validate against this
 * If the value did validate against an if, or there is no if, this always validates
+
+## Combination Keywords (6.7)
+
+### allOf (6.7.1)
+* Must be a non-empty array. Each element must be a Schema
+* Value is valid if it validates against all of the supplied schemas
+
+### anyOf (6.7.2)
+* Must be a non-empty array. Each element must be a Schema
+* Value is valid if it validates against any of the supplied schemas
+
+### oneOf (6.7.3)
+* Must be a non-empty array. Each element must be a Schema
+* Value is valid if it validates against only one of the supplied schemas
+
+### not (7.6.4)
+* Must be a Schema
+* Value is valid if it vails to validate against the Schema provided
+
+## format (7)
+* Must be a string
+* A non-conformant value type should validate
+* Can be disabled
+* Should support the following
+
+### Dates/Times (7.3.1)
+* Applied to strings
+* Should support `date-time`, `date`, `time`
+* If `full-date` and `full-time` are supported, `date` and `time` must be supported
+* Should not support name-space collisions unless validation against RFC 3339, section 5.6 is correct
+
+### emails (7.3.2)
+* Applied to strings
+* Valid against `email` and `idn-email` (RFC 5322, section 3.4.1, RFC 6531)
+* `idn-email` is a superset of `email`
+
+### hostnames (7.3.3)
+* Applied to strings
+* Valid against `hostname` and `idn-hostname`  (RFC 1034, section 3.1,RFC 5890, section 2.3.2.3)
+* `idn-hostname` is a superset of `hostname`
+
+### ip address (7.3.4)
+* Applied to strings
+* Valid against `ipv4` and `ipv6` (RFC 2673, section 3.2, RFC 4291, section 2.2)
+
+##
