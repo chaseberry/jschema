@@ -254,4 +254,26 @@ then it must also validate against this
 * Must be an object
 * Each value of a given key must be a Schema
 
-## Annotations
+## Annotations (10)
+* Custom key-value pairs used to provide documentation
+
+### title, description (10.1)
+* Must be strings
+* title should be short
+* description should be a longer, more in depth, explination of the Schema
+
+### default (10.2)
+* Can be used to provide a default value
+* Recommended to be valid to the schema
+* If multiple keywords are present, implementations should remove duplicates
+
+### readyOnly, writeOnly (10.3)
+* Must be boolean
+* Multiple instances should be `or`ed together
+
+#### readOnly
+* If true attempts to modify the value should be ignored and might be rejected by an owning authority
+* If an entire document is marked true an owning authority may ignore or reject if received
+
+#### writeOnly
+*
