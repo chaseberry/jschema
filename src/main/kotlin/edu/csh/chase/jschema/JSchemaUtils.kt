@@ -9,4 +9,18 @@ object JSchemaUtils {
         }
     }
 
+    fun error(s: String, config: JSchemaConfig) {
+
+    }
+
+    val validTypes = listOf(
+            "null",
+            "boolean",
+            "object",
+            "array",
+            "number",
+            "string",
+            "integer"
+    )
+
 }
