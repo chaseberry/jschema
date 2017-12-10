@@ -22,8 +22,6 @@ http://json-schema.org/latest/json-schema-validation.html
 
 # Validation Keywords
 
-## Number Specific (6.1)
-
 ### type (6.1.1)
 * Must be String or Array
 * If array, each value must be a unique string
@@ -40,6 +38,8 @@ http://json-schema.org/latest/json-schema-validation.html
 ### const (6.1.3)
 * Can be any type
 * Value must equal this
+
+## Number Specific (6.1)
 
 ### multipleOf (6.2.1)
 * Must be a number, > 0
