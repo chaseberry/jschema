@@ -5,13 +5,14 @@ import edu.csh.chase.jschema.models.Constraint
 import edu.csh.chase.jschema.models.EnumConstraint
 import edu.csh.chase.jschema.JSchemaUtils as Utils
 
-class JsonSchema(private val config: JSchemaConfig = JSchemaConfig()) {
+class JsonSchemaDSL(private val config: JSchemaConfig = JSchemaConfig()) {
 
     val constraints = ArrayList<Constraint<*>>()
 
-    var enum: List<Any?>? = null
+    var enum: List<Any?>?
         set(value) {
             constraints.add(EnumConstraint(value, config))
         }
+        get() = null
 
 }
