@@ -241,5 +241,17 @@ then it must also validate against this
 * Option to disable validation on these keywords
 
 ### contentEncoding (8.3)
+* Must be a string
+* Applied to strings
+* Value is binary data encoded by this type
 
 ### contentMediaType (8.4)
+* Must be a string
+* Applied to strings
+* Value is binary data matching this media type
+
+## definitions (9)
+* Must be an object
+* Each value of a given key must be a Schema
+
+## Annotations
