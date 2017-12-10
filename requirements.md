@@ -253,6 +253,7 @@ then it must also validate against this
 ## definitions (9)
 * Must be an object
 * Each value of a given key must be a Schema
+* Implementations can use this as an example regardless of examples presence
 
 ## Annotations (10)
 * Custom key-value pairs used to provide documentation
@@ -270,10 +271,18 @@ then it must also validate against this
 ### readyOnly, writeOnly (10.3)
 * Must be boolean
 * Multiple instances should be `or`ed together
+* Omitted is the same as supplying false
 
 #### readOnly
 * If true attempts to modify the value should be ignored and might be rejected by an owning authority
 * If an entire document is marked true an owning authority may ignore or reject if received
 
 #### writeOnly
-*
+* If true the value will never be present when retieved from the owning authority. It can be provided but will never be returned
+* If an entire document is marked true an owning authority may return a blank doc, error, or ignore an attempt to retrieve
+
+## examples (10.4)
+* Must be an array
+* If multiple instances of this keyword appear implementations must flat-map all values
+* Values of examples are recommended to be valid
+* Implementations may use value of default as an example
