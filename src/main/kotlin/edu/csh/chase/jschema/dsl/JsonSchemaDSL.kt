@@ -27,4 +27,9 @@ class JsonSchemaDSL(private val config: JSchemaConfig = JSchemaConfig()) {
         constraints["const"] = ConstantConstraint(value, config)
     }
 
+    fun items(schema: JsonSchemaDSL.() -> Unit): JsonSchemaDSL {
+        return JsonSchemaDSL().apply(schema)
+    }
+
+
 }

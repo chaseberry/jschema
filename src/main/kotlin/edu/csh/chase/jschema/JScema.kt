@@ -7,6 +7,9 @@ fun main(args: Array<String>) {
     schema {
         type("string")
         enum("user", "truck", "stationAlert")
+        items {
+            type("number")
+        }
     }
 
 }

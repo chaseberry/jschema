@@ -35,4 +35,8 @@ class JsonSchema(val config: JSchemaConfig = JSchemaConfig()) {
         annotations[name] = value
     }
 
+    fun validate(value: Any?): Boolean {
+
+    }
+
 }
