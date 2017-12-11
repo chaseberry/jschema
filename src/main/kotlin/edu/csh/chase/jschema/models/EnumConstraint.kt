@@ -3,7 +3,7 @@ package edu.csh.chase.jschema.models
 import edu.csh.chase.jschema.JSchemaConfig
 import edu.csh.chase.jschema.JSchemaUtils
 
-class EnumConstraint<T : List<Any?>>(value: T?, config: JSchemaConfig) : Constraint<T>("enum", value, config) {
+class EnumConstraint<T : List<Any?>>(value: T, config: JSchemaConfig) : Constraint<T>("enum", value, config) {
 
     override fun checkSet() {
         value?.let {
