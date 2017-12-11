@@ -1,4 +1,4 @@
-package edu.csh.chase.jschema.models
+package edu.csh.chase.jschema.models.constraints
 
 import edu.csh.chase.jschema.JSchemaConfig
 

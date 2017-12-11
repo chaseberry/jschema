@@ -1,5 +1,7 @@
 package edu.csh.chase.jschema.models
 
+import edu.csh.chase.jschema.models.constraints.Constraint
+
 class JsonSchema {
 
     private val constraints = HashMap<String, Constraint<*>>()
