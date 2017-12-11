@@ -1,10 +1,7 @@
 package edu.csh.chase.jschema.dsl
 
 import edu.csh.chase.jschema.JSchemaConfig
-import edu.csh.chase.jschema.models.constraints.Constraint
-import edu.csh.chase.jschema.models.constraints.EnumConstraint
-import edu.csh.chase.jschema.models.constraints.MultiTypeConstraint
-import edu.csh.chase.jschema.models.constraints.SingleTypeConstraint
+import edu.csh.chase.jschema.models.constraints.*
 import edu.csh.chase.jschema.JSchemaUtils as Utils
 
 class JsonSchemaDSL(private val config: JSchemaConfig = JSchemaConfig()) {
@@ -12,7 +9,7 @@ class JsonSchemaDSL(private val config: JSchemaConfig = JSchemaConfig()) {
     val constraints = HashMap<String, Constraint<*>>()
 
     fun enum(vararg contains: Any?) {
-        constraints["enum"] = EnumConstraint(contains.asList(), config).apply { checkSet() }
+        constraints["enum"] = EnumConstraint(contains.asList(), config)
     }
 
     fun type(vararg type: String) {
@@ -26,5 +23,8 @@ class JsonSchemaDSL(private val config: JSchemaConfig = JSchemaConfig()) {
         constraints["type"] = MultiTypeConstraint(types, config)
     }
 
+    fun const(value: Any?) {
+        constraints["const"] = ConstantConstraint(value, config)
+    }
 
 }

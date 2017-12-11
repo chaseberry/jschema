@@ -2,7 +2,7 @@ package edu.csh.chase.jschema.models.constraints
 
 import edu.csh.chase.jschema.JSchemaConfig
 
-class ConstantConstraint(value: Any, config: JSchemaConfig) : Constraint<Any>("const", value, config) {
+class ConstantConstraint(value: Any?, config: JSchemaConfig) : Constraint<Any>("const", value, config) {
 
     override fun checkSet() {}
 
