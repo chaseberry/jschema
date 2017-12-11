@@ -16,8 +16,12 @@ apply plugin: 'kotlin'
 
 repositories {
     mavenCentral()
+    maven {
+        url "http://dl.bintray.com/chaseberry/maven"
+    }
 }
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre8:$kotlin_version"
+    compile 'edu.csh.chase.kjson:kjson:0.0.20'
 }
