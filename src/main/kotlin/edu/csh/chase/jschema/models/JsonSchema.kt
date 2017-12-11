@@ -36,7 +36,13 @@ class JsonSchema(val config: JSchemaConfig = JSchemaConfig()) {
     }
 
     fun validate(value: Any?): Boolean {
-
+        //TODO Not fail right away, go through all constraints and collect results
+        constraints.forEach {
+            if (!it.value.validate(value)) {
+                return false
+            }
+        }
+        return true
     }
 
 }
