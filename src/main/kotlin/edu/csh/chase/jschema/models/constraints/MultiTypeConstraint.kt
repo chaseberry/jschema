@@ -8,7 +8,7 @@ class MultiTypeConstraint(override val value: List<String>, config: JSchemaConfi
     override fun checkSet() {
         value.forEachIndexed { i, it ->
             if (it !in config.validTypes) {
-                error("$it is not a valid type")
+                error("$it is not a valid type [$i]")
             }
         }
 
