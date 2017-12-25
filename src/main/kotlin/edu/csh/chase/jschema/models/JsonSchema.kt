@@ -4,7 +4,7 @@ import edu.csh.chase.jschema.JSchemaConfig
 import edu.csh.chase.jschema.JSchemaUtils
 import edu.csh.chase.jschema.models.constraints.Constraint
 
-class JsonSchema(val config: JSchemaConfig = JSchemaConfig()) {
+class JsonSchema(val config: JSchemaConfig = JSchemaUtils.defaultConfig) {
 
     private val constraints = HashMap<String, Constraint<*>>()
 

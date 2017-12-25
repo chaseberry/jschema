@@ -7,13 +7,13 @@ class MultiTypeConstraint(override val value: List<String>, config: JSchemaConfi
 
     override fun checkSet() {
         value.forEachIndexed { i, it ->
-            if (it !in edu.csh.chase.jschema.JSchemaUtils.validTypes) {
+            if (it !in edu.csh.chase.jschema.JSchemaUtils.defaultTypes) {
                 error("$it is not a valid type")
             }
         }
 
         if (value.intersect(value).isNotEmpty()) {
-            error("type array need to be unique")
+            error("type array needs to be unique")
         }
     }
 

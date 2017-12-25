@@ -13,14 +13,16 @@ object JSchemaUtils {
 
     }
 
-    val validTypes = listOf(
-            "null",
-            "boolean",
-            "object",
-            "array",
-            "number",
-            "string",
-            "integer"
+    val defaultTypes = listOf(
+        "null",
+        "boolean",
+        "object",
+        "array",
+        "number",
+        "string",
+        "integer"
     )
+
+    var defaultConfig = JSchemaConfig()
 
 }
