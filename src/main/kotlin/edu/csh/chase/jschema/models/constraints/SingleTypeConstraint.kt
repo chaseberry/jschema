@@ -3,7 +3,7 @@ package edu.csh.chase.jschema.models.constraints
 import edu.csh.chase.jschema.JSchemaConfig
 import edu.csh.chase.jschema.JSchemaUtils as Utils
 
-class SingleTypeConstraint(override val value: String, config: JSchemaConfig) : Constraint<String>("type", value, config) {
+class SingleTypeConstraint(override val value: String, config: JSchemaConfig) : Constraint<String>(value, config) {
 
     override fun checkSet() {
         if (value !in config.validTypes) {

@@ -2,7 +2,7 @@ package edu.csh.chase.jschema.models.constraints
 
 import edu.csh.chase.jschema.JSchemaConfig
 
-class EnumConstraint<T : List<Any?>>(override val value: T, config: JSchemaConfig) : Constraint<T>("enum", value, config) {
+class EnumConstraint<T : List<Any?>>(override val value: T, config: JSchemaConfig) : Constraint<T>(value, config) {
 
     override fun checkSet() {
         if (value.isEmpty()) {

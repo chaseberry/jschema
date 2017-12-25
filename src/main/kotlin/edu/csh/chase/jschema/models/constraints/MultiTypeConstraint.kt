@@ -3,7 +3,7 @@ package edu.csh.chase.jschema.models.constraints
 import edu.csh.chase.jschema.JSchemaConfig
 import edu.csh.chase.jschema.JSchemaUtils as Utils
 
-class MultiTypeConstraint(override val value: List<String>, config: JSchemaConfig) : Constraint<List<String>>("type", value, config) {
+class MultiTypeConstraint(override val value: List<String>, config: JSchemaConfig) : Constraint<List<String>>(value, config) {
 
     override fun checkSet() {
         value.forEachIndexed { i, it ->
