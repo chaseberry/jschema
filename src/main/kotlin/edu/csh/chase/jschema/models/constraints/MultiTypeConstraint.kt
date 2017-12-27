@@ -5,7 +5,7 @@ import edu.csh.chase.jschema.JSchemaUtils as Utils
 
 class MultiTypeConstraint(override val value: List<String>, config: JSchemaConfig) : Constraint<List<String>>(value, config) {
 
-    override fun checkSet() {
+    override fun validateConstraint() {
         value.forEachIndexed { i, it ->
             if (it !in config.validTypes) {
                 error("$it is not a valid type [$i]")
@@ -17,7 +17,7 @@ class MultiTypeConstraint(override val value: List<String>, config: JSchemaConfi
         }
     }
 
-    override fun validate(value: Any?): Boolean {
+    override fun validateValue(value: Any?): Boolean {
 
     }
 

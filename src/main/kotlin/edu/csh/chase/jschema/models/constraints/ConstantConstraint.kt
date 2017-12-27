@@ -4,9 +4,9 @@ import edu.csh.chase.jschema.JSchemaConfig
 
 class ConstantConstraint(value: Any?, config: JSchemaConfig) : Constraint<Any>(value, config) {
 
-    override fun checkSet() {}
+    override fun validateConstraint() {}
 
-    override fun validate(value: Any?): Boolean {
+    override fun validateValue(value: Any?): Boolean {
         return value == this.value
     }
 

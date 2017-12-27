@@ -5,9 +5,9 @@ import edu.csh.chase.jschema.JSchemaUtils
 
 abstract class Constraint<T : Any>(open val value: T?, val config: JSchemaConfig) {
 
-    abstract fun checkSet()
+    abstract fun validateConstraint()
 
-    abstract fun validate(value: Any?): Boolean
+    abstract fun validateValue(value: Any?): Boolean
 
     fun warn(warning: String) {
         JSchemaUtils.warn(warning, config)

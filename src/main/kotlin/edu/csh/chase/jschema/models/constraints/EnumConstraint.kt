@@ -4,7 +4,7 @@ import edu.csh.chase.jschema.JSchemaConfig
 
 class EnumConstraint<T : List<Any?>>(override val value: T, config: JSchemaConfig) : Constraint<T>(value, config) {
 
-    override fun checkSet() {
+    override fun validateConstraint() {
         if (value.isEmpty()) {
             warn("`enum` value should contain at least 1 element")
         }
@@ -14,7 +14,7 @@ class EnumConstraint<T : List<Any?>>(override val value: T, config: JSchemaConfi
         }
     }
 
-    override fun validate(value: Any?): Boolean {
+    override fun validateValue(value: Any?): Boolean {
         return this.value.contains(value)
     }
 }

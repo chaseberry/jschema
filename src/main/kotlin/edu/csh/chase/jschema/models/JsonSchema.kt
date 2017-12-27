@@ -15,7 +15,7 @@ class JsonSchema(val config: JSchemaConfig = JSchemaUtils.defaultConfig) {
             annotations.remove(constraint.name)
             JSchemaUtils.warn("Constraint ${constraint.name} overrides annotation", config)
         }
-        constraint.checkSet()
+        constraint.validateConstraint()
         constraints[constraint.name] = constraint
     }
 
@@ -38,7 +38,7 @@ class JsonSchema(val config: JSchemaConfig = JSchemaUtils.defaultConfig) {
     fun validate(value: Any?): Boolean {
         //TODO Not fail right away, go through all constraints and collect results
         constraints.forEach {
-            if (!it.value.validate(value)) {
+            if (!it.value.validateValue(value)) {
                 return false
             }
         }
