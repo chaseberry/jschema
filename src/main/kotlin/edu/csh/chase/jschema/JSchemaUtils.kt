@@ -13,7 +13,7 @@ object JSchemaUtils {
 
     }
 
-    val defaultTypes = listOf(
+    val defaultTypes = listOf(//TODO Type map - list/map String(name) - validation requirements
         "null",
         "boolean",
         "object",
