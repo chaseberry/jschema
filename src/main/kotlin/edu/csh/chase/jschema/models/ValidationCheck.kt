@@ -14,7 +14,7 @@ class ValidationCheck(private val config: JSchemaConfig) {
         results.add(Check.Warning(str))
     }
 
-    sealed class Check(val message: String) : {
+    sealed class Check(val message: String) {
         class Error(msg: String) : Check(msg)
         class Warning(msg: String) : Check(msg)
     }

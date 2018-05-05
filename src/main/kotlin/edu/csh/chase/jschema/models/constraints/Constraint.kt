@@ -13,7 +13,7 @@ abstract class Constraint(val name: String,
     fun isValid() {
         ValidationCheck(config)
             .apply { checkValidity(this) }
-            .takeIf { it.isValid() }
+            .takeIf { !it.isValid() }
             ?.let { throw InvalidConstraintException(it) }
     }
 

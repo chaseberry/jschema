@@ -9,7 +9,7 @@ class SingleTypeConstraint(val type: Type, config: JSchemaConfig) : Constraint("
 
     override fun checkValidity(check: ValidationCheck) {
         if (type !in config.types) {
-            error("`$type` is not a valid type. Valid types are ${config.types}")
+            check.error("`$type` is not a valid type. Valid types are ${config.types}")
         }
     }
 

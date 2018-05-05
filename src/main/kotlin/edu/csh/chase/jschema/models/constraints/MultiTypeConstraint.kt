@@ -10,12 +10,12 @@ class MultiTypeConstraint(val types: List<Type>, config: JSchemaConfig) : Constr
     override fun checkValidity(check: ValidationCheck) {
         types.forEachIndexed { i, it ->
             if (it !in config.types) {
-                error("$it is not a valid type [$i]")
+                check.error("$it is not a valid type [$i]")
             }
         }
 
         if (types.intersect(types).isNotEmpty()) {
-            error("type array needs to be unique")
+            check.error("type array needs to be unique")
         }
     }
 
