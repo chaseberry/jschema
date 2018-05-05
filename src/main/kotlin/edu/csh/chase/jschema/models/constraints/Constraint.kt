@@ -2,12 +2,23 @@ package edu.csh.chase.jschema.models.constraints
 
 import edu.csh.chase.jschema.JSchemaConfig
 import edu.csh.chase.jschema.JSchemaUtils
+import edu.csh.chase.jschema.models.Type
 
-abstract class Constraint<T : Any>(open val value: T?, val config: JSchemaConfig) {
+abstract class Constraint(val name: String,
+                                   val valueType: Type? = null,
+                                   val config: JSchemaConfig) {
 
-    abstract fun validateConstraint()
+    open fun validateConstraint() {}
 
-    abstract fun validateValue(value: Any?): Boolean
+    fun validate(value: Any?): Boolean {
+        if (valueType == null || valueType.check(value)) {
+            return validateValue(value)
+        }
+
+        return true
+    }
+
+    protected abstract fun validateValue(value: Any?): Boolean
 
     fun warn(warning: String) {
         JSchemaUtils.warn(warning, config)
@@ -16,4 +27,5 @@ abstract class Constraint<T : Any>(open val value: T?, val config: JSchemaConfig
     fun error(error: String) {
         JSchemaUtils.error(error, config)
     }
+
 }

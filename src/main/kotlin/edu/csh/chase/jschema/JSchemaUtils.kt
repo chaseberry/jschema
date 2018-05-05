@@ -1,5 +1,7 @@
 package edu.csh.chase.jschema
 
+import edu.csh.chase.jschema.models.types.IntType
+
 object JSchemaUtils {
 
     fun warn(warning: String, config: JSchemaConfig) {
@@ -13,14 +15,9 @@ object JSchemaUtils {
 
     }
 
-    val defaultTypes = listOf(//TODO Type map - list/map String(name) - validation requirements
-        "null",
-        "boolean",
-        "object",
-        "array",
-        "number",
-        "string",
-        "integer"
+    val defaultTypes = mapOf(//TODO Type map - list/map String(name) - validation requirements
+        "int" to IntType,
+        "integer" to IntType
     )
 
     var defaultConfig = JSchemaConfig()

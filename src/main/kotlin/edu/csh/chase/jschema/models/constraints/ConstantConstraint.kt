@@ -2,12 +2,10 @@ package edu.csh.chase.jschema.models.constraints
 
 import edu.csh.chase.jschema.JSchemaConfig
 
-class ConstantConstraint(value: Any?, config: JSchemaConfig) : Constraint<Any>(value, config) {
-
-    override fun validateConstraint() {}
+class ConstantConstraint(val constant: Any?, config: JSchemaConfig) : Constraint("const", null, config) {
 
     override fun validateValue(value: Any?): Boolean {
-        return value == this.value
+        return constant == value
     }
 
 }

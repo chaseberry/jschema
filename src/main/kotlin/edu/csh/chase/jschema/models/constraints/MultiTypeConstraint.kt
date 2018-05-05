@@ -3,16 +3,16 @@ package edu.csh.chase.jschema.models.constraints
 import edu.csh.chase.jschema.JSchemaConfig
 import edu.csh.chase.jschema.JSchemaUtils as Utils
 
-class MultiTypeConstraint(override val value: List<String>, config: JSchemaConfig) : Constraint<List<String>>(value, config) {
+class MultiTypeConstraint(val types: List<String>, config: JSchemaConfig) : Constraint("type", null, config) {
 
     override fun validateConstraint() {
-        value.forEachIndexed { i, it ->
-            if (it !in config.validTypes) {
+        types.forEachIndexed { i, it ->
+            if (it !in config.types) {
                 error("$it is not a valid type [$i]")
             }
         }
 
-        if (value.intersect(value).isNotEmpty()) {
+        if (types.intersect(types).isNotEmpty()) {
             error("type array needs to be unique")
         }
     }
