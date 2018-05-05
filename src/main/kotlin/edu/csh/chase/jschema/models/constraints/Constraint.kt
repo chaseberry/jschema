@@ -1,5 +1,6 @@
 package edu.csh.chase.jschema.models.constraints
 
+import edu.csh.chase.jschema.InvalidConstraintException
 import edu.csh.chase.jschema.JSchemaConfig
 import edu.csh.chase.jschema.JSchemaUtils
 import edu.csh.chase.jschema.models.Type
@@ -9,11 +10,14 @@ abstract class Constraint(val name: String,
                           val valueType: Type? = null,
                           val config: JSchemaConfig) {
 
-    protected open fun checkValidity(check: ValidationCheck) {}
-
     fun isValid() {
-
+        ValidationCheck(config)
+            .apply { checkValidity(this) }
+            .takeIf { it.isValid() }
+            ?.let { throw InvalidConstraintException(it) }
     }
+
+    protected open fun checkValidity(check: ValidationCheck) {}
 
     fun validate(value: Any?): Boolean {
         if (valueType == null || valueType.check(value)) {
