@@ -5,8 +5,8 @@ import edu.csh.chase.jschema.JSchemaUtils
 import edu.csh.chase.jschema.models.Type
 
 abstract class Constraint(val name: String,
-                                   val valueType: Type? = null,
-                                   val config: JSchemaConfig) {
+                          val valueType: Type? = null,
+                          val config: JSchemaConfig) {
 
     open fun validateConstraint() {}
 

@@ -2,7 +2,7 @@ package edu.csh.chase.jschema.models.types
 
 import edu.csh.chase.jschema.models.Type
 
-object IntType : Type("int") {
+object IntType : Type("integer") {
 
     override fun check(value: Any?): Boolean {
         return value != null && value is Int

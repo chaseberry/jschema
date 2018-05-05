@@ -14,7 +14,7 @@ class JsonSchemaDSL(private val config: JSchemaConfig = Utils.defaultConfig) {
 
     fun type(vararg type: String) {
         when (type.size) {
-            1 -> constraints["type"] = SingleTypeConstraint(type[0], config)
+            1 -> constraints["type"] = SingleTypeConstraint(, config)
             else -> type(type.asList())
         }
     }

@@ -1,9 +1,10 @@
 package edu.csh.chase.jschema.models.constraints
 
 import edu.csh.chase.jschema.JSchemaConfig
+import edu.csh.chase.jschema.models.Type
 import edu.csh.chase.jschema.JSchemaUtils as Utils
 
-class MultiTypeConstraint(val types: List<String>, config: JSchemaConfig) : Constraint("type", null, config) {
+class MultiTypeConstraint(val types: List<Type>, config: JSchemaConfig) : Constraint("type", null, config) {
 
     override fun validateConstraint() {
         types.forEachIndexed { i, it ->
@@ -18,7 +19,7 @@ class MultiTypeConstraint(val types: List<String>, config: JSchemaConfig) : Cons
     }
 
     override fun validateValue(value: Any?): Boolean {
-
+        return types
     }
 
 }
