@@ -6,7 +6,7 @@ import edu.csh.chase.jschema.JSchemaUtils as Utils
 
 class JsonSchemaDSL(private val config: JSchemaConfig = Utils.defaultConfig) {
 
-    val constraints = HashMap<String, Constraint<*>>()
+    val constraints = HashMap<String, Constraint>()
 
     fun enum(vararg contains: Any?) {
         constraints["enum"] = EnumConstraint(contains.asList(), config)

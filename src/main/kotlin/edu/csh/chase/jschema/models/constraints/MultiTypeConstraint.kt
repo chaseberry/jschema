@@ -2,11 +2,12 @@ package edu.csh.chase.jschema.models.constraints
 
 import edu.csh.chase.jschema.JSchemaConfig
 import edu.csh.chase.jschema.models.Type
+import edu.csh.chase.jschema.models.ValidationCheck
 import edu.csh.chase.jschema.JSchemaUtils as Utils
 
 class MultiTypeConstraint(val types: List<Type>, config: JSchemaConfig) : Constraint("type", null, config) {
 
-    override fun validateConstraint() {
+    override fun checkValidity(check: ValidationCheck) {
         types.forEachIndexed { i, it ->
             if (it !in config.types) {
                 error("$it is not a valid type [$i]")
@@ -19,7 +20,7 @@ class MultiTypeConstraint(val types: List<Type>, config: JSchemaConfig) : Constr
     }
 
     override fun validateValue(value: Any?): Boolean {
-        return types
+        return types.find { it.check(value) } != null
     }
 
 }

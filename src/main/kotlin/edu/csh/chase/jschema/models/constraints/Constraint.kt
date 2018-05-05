@@ -3,12 +3,17 @@ package edu.csh.chase.jschema.models.constraints
 import edu.csh.chase.jschema.JSchemaConfig
 import edu.csh.chase.jschema.JSchemaUtils
 import edu.csh.chase.jschema.models.Type
+import edu.csh.chase.jschema.models.ValidationCheck
 
 abstract class Constraint(val name: String,
                           val valueType: Type? = null,
                           val config: JSchemaConfig) {
 
-    open fun validateConstraint() {}
+    protected open fun checkValidity(check: ValidationCheck) {}
+
+    fun isValid() {
+
+    }
 
     fun validate(value: Any?): Boolean {
         if (valueType == null || valueType.check(value)) {
